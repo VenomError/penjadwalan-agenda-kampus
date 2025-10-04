@@ -1,1 +1,1 @@
-Dashboard Mahasiswa
+<x-layouts.dashboard></x-layouts.dashboard>
