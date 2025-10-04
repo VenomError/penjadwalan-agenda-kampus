@@ -2,7 +2,7 @@
     <div class="p-sm-8 p-md-10 card-body">
         <div class="mb-4 text-center">
             <a
-                href="index.html"
+                  href="/register"
                 class="logos"
             >
                 <x-img
