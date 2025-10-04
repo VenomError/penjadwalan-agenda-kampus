@@ -1,0 +1,1 @@
+import"../../admin.bundle-DI9_jvUJ.js";import"../../main-d77jCppw.js";document.addEventListener("DOMContentLoaded",function(){var e=document.getElementById("dayGridViewCalendar"),a=new FullCalendar.Calendar(e,{timeZone:"UTC",initialView:"dayGridWeek",headerToolbar:{left:"prev,next",center:"title",right:"dayGridWeek,dayGridDay"},editable:!0});a.render()});

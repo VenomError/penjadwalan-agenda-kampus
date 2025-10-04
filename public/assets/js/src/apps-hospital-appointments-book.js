@@ -1,0 +1,1 @@
+import"../../admin.bundle-DI9_jvUJ.js";/* empty css                               */import"../../main-d77jCppw.js";VirtualSelect.init({ele:"#doctorSelect",options:[{label:"Dr. Michael Johnson",value:"Dr. Michael Johnson"},{label:"Dr. Sarah Evans",value:"Dr. Sarah Evans"},{label:"Dr. Emily Carter",value:"Dr. Emily Carter"},{label:"Dr. Robert Harris",value:"Dr. Robert Harris"}]});

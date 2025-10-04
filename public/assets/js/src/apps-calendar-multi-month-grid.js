@@ -1,0 +1,1 @@
+import"../../admin.bundle-DI9_jvUJ.js";import"../../main-d77jCppw.js";document.addEventListener("DOMContentLoaded",function(){var e=document.getElementById("multiMonthGridCalendar"),n=new FullCalendar.Calendar(e,{timeZone:"UTC",initialView:"multiMonthYear",editable:!0});n.render()});

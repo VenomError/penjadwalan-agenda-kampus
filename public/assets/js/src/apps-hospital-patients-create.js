@@ -1,0 +1,1 @@
+import"../../admin.bundle-DI9_jvUJ.js";/* empty css                               */import"../../main-d77jCppw.js";VirtualSelect.init({ele:"#genderSelect",options:[{label:"Male",value:"Male"},{label:"Female",value:"Female"},{label:"Others",value:"Others"}]});
