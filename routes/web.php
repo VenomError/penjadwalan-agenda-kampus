@@ -4,11 +4,11 @@ use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
 
-Route::middleware('guest')->controller(AuthController::class)->group(function () {
-    Route::get('/login', 'login')->name('login');
-    Route::post('/login', 'loginProcess')->name('login-process');
-    Route::get('/register', 'register')->name('register');
-    Route::post('/register', 'registerProcess')->name('register-process');
+Route::middleware('guest')->group(function () {
+    Route::get('/login', [AuthController::class,'login'])->name('login');
+    Route::post('/login', [AuthController::class,'loginProcess'])->name('login-process');
+    Route::get('/register', [AuthController::class,'register'])->name('register');
+    Route::post('/register', [AuthController::class,'registerProcess'])->name('register-process');
 });
 // Logout Prcesss
 Route::get('/logout', [AuthController::class, 'logout'])->middleware('auth')->name('logout');

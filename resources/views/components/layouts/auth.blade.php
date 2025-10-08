@@ -48,7 +48,6 @@
         @vite(['resources/css/app.css', 'resources/js/app.js'])
 
     </head>
-
     <body class="sidebar-hidden">
         <div class="auth-wrapper">
             <div class="min-vh-100 d-flex align-items-center container py-10">
