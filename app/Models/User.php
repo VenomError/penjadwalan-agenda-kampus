@@ -3,10 +3,13 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+use App\Models\Event;
 use App\Enum\UserRole;
+use App\Models\EventCategory;
+use App\Models\EventParticipant;
+use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable
 {
@@ -23,7 +26,6 @@ class User extends Authenticatable
         'email',
         'password',
         'avatar',
-        'nim',
         'role'
     ];
 
@@ -50,5 +52,20 @@ class User extends Authenticatable
             'password' => 'hashed',
             'role' => UserRole::class
         ];
+    }
+
+    public function events()
+    {
+        return $this->hasMany(Event::class, 'creator_id', 'id');
+    }
+
+    public function eventCategories()
+    {
+        return $this->hasMany(EventCategory::class, 'user_id', 'id');
+    }
+
+    public function eventParticipants()
+    {
+        return $this->hasMany(EventParticipant::class, 'user_id', 'id');
     }
 }
