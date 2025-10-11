@@ -18,6 +18,7 @@ return new class extends Migration {
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->string('avatar')->nullable();
+            $table->string('nim')->nullable();
             $table->enum('role', UserRole::cases())->default(UserRole::MAHASISWA);
             $table->rememberToken();
             $table->timestamps();
