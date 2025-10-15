@@ -39,5 +39,5 @@ Route::middleware(['auth', 'role:prodi'])->prefix('dashboard/prodi')->name('prod
 });
 
 Route::get('/', function () {
-    return 'welcome dashboard';
-});
+    return view('landing.index');
+})->name('home');
