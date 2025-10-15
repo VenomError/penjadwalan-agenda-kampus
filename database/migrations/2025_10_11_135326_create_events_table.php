@@ -22,6 +22,7 @@ return new class extends Migration
             $table->string('location_longitude')->nullable();
             $table->datetime('start_at');
             $table->datetime('end_at');
+            $table->boolean('is_active')->default(false);
             $table->timestamps();
         });
     }

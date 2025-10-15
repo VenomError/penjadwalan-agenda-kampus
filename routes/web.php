@@ -16,10 +16,13 @@ Route::get('/logout', [AuthController::class, 'logout'])->middleware('auth')->na
 
 // Route Mahasiswa
 Route::middleware(['auth', 'role:admin'])->prefix('dashboard/admin')->name('admin.')->group(function () {
-    Route::get('/', function () {
-        return view('dashboard.admin.index');
-    });
+    Route::view('/', 'dashboard.admin.index');
 });
+Route::view('/event', 'event.list');
+Route::view('/event/calendar', 'event.calendar');
+Route::view('/event/add', 'event.add');
+Route::view('/akun', 'akun.list');
+Route::view('/settings/account', 'settings.account');
 
 
 Route::get('/dashboard', [AuthController::class , 'dashboard'])->name('dashboard');

@@ -1,3 +1,4 @@
+@use('App\Enum\UserRole')
   <div
       id="main-sidebar"
       class="main-sidebar"
@@ -153,12 +154,20 @@
               data-simplebar
           >
               <ul class="list-unstyled navbar-nav-menu p-0">
-                  <x-nav-title title="Dashboard" />
-                  <x-nav-item
-                      title="Dashboard"
-                      href="/dashboard"
-                      icon="layout-dashboard"
-                  />
+                {{-- sidebar admin --}}
+                {{-- sidebar prodi --}}
+                {{-- sidebar mahasiswa --}}
+                 @switch(auth()->user()->role)
+                     @case(UserRole::ADMIN)
+                            @include('__partials.dashboard.sidebar-admin')
+                         @break
+                     @case(UserRole::PRODI)
+                            @include('__partials.dashboard.sidebar-prodi')
+                         @break
+
+                     @default
+                            @include('__partials.dashboard.sidebar-mahasiswa')
+                 @endswitch
               </ul>
           </div>
       </div>

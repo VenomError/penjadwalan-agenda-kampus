@@ -14,16 +14,32 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        $this->command->info("Create new Prodi Account");
-        $user = new User([
-            'name' => $this->command->ask('nama'),
-            'email'  => $this->command->ask('email'),
-            'password' => $this->command->ask('password'),
-            'role' => UserRole::PRODI
-        ]);
+        if ($this->command->confirm("create prodi account")) {
+            $this->command->info("Create new Prodi Account");
+            $prodi = new User([
+                'name' => $this->command->ask('nama'),
+                'email' => $this->command->ask('email'),
+                'password' => $this->command->ask('password'),
+                'role' => UserRole::PRODI
+            ]);
+            if ($prodi->save()) {
+                $this->command->info("Create Prodi Accoutn Success");
+            }
+        }
 
-        if ($user->save()) {
-            $this->command->info("Create Prodi Accoutn Success");
+        if ($this->command->confirm("create admin account")) {
+
+            $this->command->info("Create new admin Account");
+            $admin = new User([
+                'name' => $this->command->ask('nama'),
+                'email' => $this->command->ask('email'),
+                'password' => $this->command->ask('password'),
+                'role' => UserRole::ADMIN
+            ]);
+
+            if ($admin->save()) {
+                $this->command->info("Create Admin Account Success");
+            }
         }
     }
 }

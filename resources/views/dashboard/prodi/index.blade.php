@@ -1,1 +1,21 @@
-Dashboard Prodi
+<x-layouts.dashboard>
+     <div class="row">
+      <div class="col-12 mb-5">
+            <div class="alert alert-solid-primary alert-dismissible">
+                <div class="d-flex gap-3 align-items-center">
+                   <i data-lucide="school" style="font-size: 40px"></i>
+                    <div>
+                        <p class="mb-1">Welcome Dashboard Prodi</p>
+                        <h6 class="mb-1 fw-medium opacity-75">Helo {{ auth()->user()->name }}</h6>
+                    </div>
+                </div>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        </div>
+         <x-widget.count  title="Total Event" count="200" color="indigo" icon="calendar-clock" />
+      <x-widget.count title="Completed" count="50" color="success" icon="calendar-check-2" />
+      <x-widget.count title="Upcoming" count="150" color="orange" icon="calendar-clock" />
+      <x-widget.count title="Total Participant" :count="Number::format(2000)" color="pink" icon="graduation-cap" />
+   </div>
+    DASHBOARD PRODI
+</x-layouts.dashboard>

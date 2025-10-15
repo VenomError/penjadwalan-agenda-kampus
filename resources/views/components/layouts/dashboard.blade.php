@@ -12,6 +12,7 @@
     dir="ltr"
     data-colors="default"
     data-profile-sidebar
+
 >
 
     <head>
@@ -39,6 +40,9 @@
             crossorigin
             src="assets/js/src/dashboards-projects.js"
         ></x-script>
+
+        @stack('style')
+
         <x-link
             rel="modulepreload"
             crossorigin
