@@ -22,7 +22,8 @@ use Illuminate\Database\Eloquent\Model;
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property-read EventCategory|null $category
  * @property-read User|null $creator
- * @property-read EventParticipant|null $participant
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, EventParticipant> $participant
+ * @property-read int|null $participant_count
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Event newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Event newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Event query()
@@ -52,6 +53,7 @@ class Event extends Model
         'location_longitude',
         'start_at',
         'end_at',
+        'is_active'
     ];
 
     protected $casts = [
@@ -65,7 +67,7 @@ class Event extends Model
     }
     public function participant()
     {
-        return $this->belongsTo(EventParticipant::class, 'event_id', 'id');
+        return $this->hasMany(EventParticipant::class, 'event_id', 'id');
     }
 
     public function creator()
