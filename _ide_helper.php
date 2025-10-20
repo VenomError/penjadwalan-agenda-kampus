@@ -23007,6 +23007,43 @@ namespace Flasher\Laravel\Facade {
             }
     }
 
+namespace Flasher\Notyf\Laravel\Facade {
+    /**
+     * @method static NotyfBuilder success(string $message, array<string, mixed> $options = array())
+     * @method static NotyfBuilder error(string $message, array<string, mixed> $options = array())
+     * @method static NotyfBuilder warning(string $message, array<string, mixed> $options = array())
+     * @method static NotyfBuilder info(string $message, array<string, mixed> $options = array())
+     * @method static NotyfBuilder flash(StampInterface[] $stamps = array())
+     * @method static NotyfBuilder message(string $message)
+     * @method static NotyfBuilder options(array<string, mixed> $options, bool $merge = true)
+     * @method static NotyfBuilder option(string $name, string $value)
+     * @method static NotyfBuilder priority(int $priority)
+     * @method static NotyfBuilder hops(int $amount)
+     * @method static NotyfBuilder keep()
+     * @method static NotyfBuilder delay(int $delay)
+     * @method static NotyfBuilder now()
+     * @method static NotyfBuilder with(StampInterface[] $stamps = array())
+     * @method static NotyfBuilder withStamp(StampInterface $stamp)
+     * @method static NotyfBuilder handler(string $handler)
+     * @method static Envelope     getEnvelope()
+     * @method static NotyfBuilder duration(int $duration)
+     * @method static NotyfBuilder ripple(bool $ripple)
+     * @method static NotyfBuilder position(string $position, string $value)
+     * @method static NotyfBuilder dismissible(bool $dismissible)
+     */
+    class Notyf extends \Flasher\Prime\Factory\NotificationFactory {
+        /**
+         * @static
+         */
+        public static function createNotificationBuilder()
+        {
+            /** @var \Flasher\Notyf\Prime\Notyf $instance */
+            return $instance->createNotificationBuilder();
+        }
+
+            }
+    }
+
 namespace Flasher\SweetAlert\Laravel\Facade {
     /**
      * @method static SweetAlertBuilder success(string $message, array<string, mixed> $options = array())
@@ -28054,6 +28091,7 @@ namespace  {
     class View extends \Illuminate\Support\Facades\View {}
     class Vite extends \Illuminate\Support\Facades\Vite {}
     class Flasher extends \Flasher\Laravel\Facade\Flasher {}
+    class Notyf extends \Flasher\Notyf\Laravel\Facade\Notyf {}
     class SweetAlert extends \Flasher\SweetAlert\Laravel\Facade\SweetAlert {}
 }
 
