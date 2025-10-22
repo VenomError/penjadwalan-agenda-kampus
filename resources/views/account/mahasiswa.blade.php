@@ -27,7 +27,9 @@
                 </x-slot:head>
                 @foreach ($users as $mahasiswa)
                     <tr>
-                        <td>{{ $mahasiswa->name }}</td>
+                        <td>
+                            <x-avatar :img="$mahasiswa->avatar" :title="$mahasiswa->name" />
+                        </td>
                         <td>{{ $mahasiswa->nim }}</td>
                         <td>{{ $mahasiswa->email }}</td>
                         <td class="text-start">

@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AccountController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\SettingController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
 
@@ -29,7 +30,8 @@ Route::prefix('/account')->name('account')->controller(AccountController::class)
     Route::put('/update/{user?}', 'updateUser')->name('.user-update');
     Route::delete('/remove/{user}', 'remove')->name('.user-remove');
 });
-Route::view('/settings/account', 'settings.account');
+Route::get('/settings/account', [SettingController::class, 'account'])->name('settings.account');
+Route::put('/settings/account', [SettingController::class, 'accountUpdate'])->name('settings.account-update');
 
 
 Route::get('/dashboard', [AuthController::class, 'dashboard'])->name('dashboard');

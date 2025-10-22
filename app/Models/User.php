@@ -7,7 +7,9 @@ use App\Models\Event;
 use App\Enum\UserRole;
 use App\Models\EventCategory;
 use App\Models\EventParticipant;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
@@ -139,5 +141,21 @@ class User extends Authenticatable
     public function scopeMahasiswa($query)
     {
         return $query->where('role', UserRole::MAHASISWA);
+    }
+
+    /**
+     * Interact with the avatar attribute.
+     *
+     * @return \Illuminate\Database\Eloquent\Casts\Attribute
+     */
+    public function avatar(): Attribute
+    {
+        return Attribute::get(function ($value) {
+            if ($value && Storage::disk('public')->exists($value)) {
+                return Storage::url($value);
+            } else {
+                return asset('avatar-default.png');
+            }
+        });
     }
 }

@@ -26,7 +26,7 @@
                 </x-slot:head>
                 @foreach ($users as $admin)
                     <tr>
-                        <td>{{ $admin->name }}</td>
+                        <td> <x-avatar :img="$admin->avatar" :title="$admin->name" /></td>
                         <td>{{ $admin->email }}</td>
                         <td class="text-start">
                             <div class="btn-group gap-1">
