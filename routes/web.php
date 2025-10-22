@@ -23,10 +23,11 @@ Route::view('/event', 'event.list');
 Route::view('/event/calendar', 'event.calendar');
 Route::view('/event/add', 'event.add');
 Route::prefix('/account')->name('account')->controller(AccountController::class)->group(function () {
-    Route::view('/admin', 'account.admin')->name('.admin');
-    Route::get('/mahasiswa', 'mahasiswa')->name('.mahasiswa');
-    Route::post('/mahasiswa', 'createMahasiswa')->name('.mahasiswa-create');
-    Route::view('/prodi', 'account.prodi')->name('.prodi');
+    Route::get('/{role}', 'user')->name('.user');
+    Route::post('/{role}', 'createUser')->name('.user-create');
+    Route::get('/edit/{user}', 'edit')->name('.user-edit');
+    Route::put('/update/{user?}', 'updateUser')->name('.user-update');
+    Route::delete('/remove/{user}', 'remove')->name('.user-remove');
 });
 Route::view('/settings/account', 'settings.account');
 

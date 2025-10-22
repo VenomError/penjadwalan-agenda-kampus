@@ -2,6 +2,7 @@
     'id' => 'modalId',
     'title' => '',
     'size' => 'md',
+    'footer' => null,
 ])
 
 <div
@@ -23,20 +24,30 @@
                     aria-label="Close"
                 ></button>
             </div>
+
             <!-- Modal Body -->
             <div class="modal-body">
                 {{ $slot }}
             </div>
-            {{ $footer ?? '' }}
+
+            <!-- Modal Footer (optional) -->
+            @if ($footer)
+                <div class="modal-footer">
+                    {{ $footer }}
+                </div>
+            @endif
         </div>
     </div>
 </div>
 
 <script>
     document.addEventListener('DOMContentLoaded', function() {
-        @if (session('showModal'))
-            var myModal = new bootstrap.Modal(document.getElementById('{{ $id }}'));
-            myModal.show();
+        @if (session('showModal') === $id)
+            const modalEl = document.getElementById('{{ $id }}');
+            if (modalEl) {
+                const modal = new bootstrap.Modal(modalEl);
+                modal.show();
+            }
         @endif
     });
 </script>

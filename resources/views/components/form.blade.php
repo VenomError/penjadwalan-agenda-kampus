@@ -1,7 +1,7 @@
-@props(['action'])
-<form action="{{ $action }}" method="post" {{ $attributes->merge() }}>
+@props(['action', 'method' => 'POST'])
+<form action="{{ $action }}" method="POST" {{ $attributes->merge() }}>
     @csrf
-    @method('POST')
+    @method($method)
 
     {{ $header ?? '' }}
 

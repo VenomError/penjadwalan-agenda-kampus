@@ -10,9 +10,9 @@
 
 {{-- AKUN --}}
 <x-nav-title title="Akun" />
-<x-nav-item href="{{ route('account.prodi') }}" title="Prodi" icon="graduation-cap" />
-<x-nav-item href="{{ route('account.admin') }}" title="Admin" icon="user-cog" />
-<x-nav-item href="{{ route('account.mahasiswa') }}" title="Mahasiswa" icon="users" />
+<x-nav-item href="{{ route('account.user', ['role' => 'prodi']) }}" title="Prodi" icon="graduation-cap" />
+<x-nav-item href="{{ route('account.user', ['role' => 'admin']) }}" title="Admin" icon="user-cog" />
+<x-nav-item href="{{ route('account.user', ['role' => 'mahasiswa']) }}" title="Mahasiswa" icon="users" />
 
 {{-- SETTINGS --}}
 <x-nav-title title="Setting" />
