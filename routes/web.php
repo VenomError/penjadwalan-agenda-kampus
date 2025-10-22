@@ -23,13 +23,15 @@ Route::middleware(['auth', 'role:admin'])->prefix('dashboard/admin')->name('admi
 Route::view('/event', 'event.list');
 Route::view('/event/calendar', 'event.calendar');
 Route::view('/event/add', 'event.add');
-Route::prefix('/account')->name('account')->controller(AccountController::class)->group(function () {
-    Route::get('/{role}', 'user')->name('.user');
-    Route::post('/{role}', 'createUser')->name('.user-create');
-    Route::get('/edit/{user}', 'edit')->name('.user-edit');
-    Route::put('/update/{user?}', 'updateUser')->name('.user-update');
-    Route::delete('/remove/{user}', 'remove')->name('.user-remove');
+Route::name('account')->group(function () {
+    Route::get('/account/{role}', [AccountController::class, 'user'])->name('.user');
+    Route::post('/account/{role}', [AccountController::class, 'createUser'])->name('.user-create');
+    Route::get('/account/edit/{user}', [AccountController::class, 'edit'])->name('.user-edit');
+    Route::put('/account/update/{user?}', [AccountController::class, 'updateUser'])->name('.user-update');
+    Route::delete('/account/remove/{user}', [AccountController::class, 'remove'])->name('.user-remove');
 });
+
+
 Route::get('/settings/account', [SettingController::class, 'account'])->name('settings.account');
 Route::put('/settings/account', [SettingController::class, 'accountUpdate'])->name('settings.account-update');
 
