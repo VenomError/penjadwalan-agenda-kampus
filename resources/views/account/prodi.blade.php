@@ -36,12 +36,16 @@
                                     color="warning"
                                     icon="square-pen"
                                 />
-                                <x-button-icon
-                                    href="{{ route('account.user-remove', ['user' => $prodi->id]) }}"
-                                    title="hapus"
-                                    color="danger"
-                                    icon="trash-2"
-                                />
+                                <x-form method="DELETE" :action="route('account.user-remove', ['user' => $prodi->id])">
+                                    <x-button-icon
+                                        type="submit"
+                                        href="{{ route('account.user-remove', ['user' => $prodi->id]) }}"
+                                        title="hapus"
+                                        buttonType="button"
+                                        color="danger"
+                                        icon="trash-2"
+                                    />
+                                </x-form>
                             </div>
                         </td>
                     </tr>

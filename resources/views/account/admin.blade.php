@@ -37,12 +37,16 @@
                                     icon="square-pen"
                                 />
                                 @if ($admin->id != auth()->id())
-                                    <x-button-icon
-                                        href="{{ route('account.user-remove', ['user' => $admin->id]) }}"
-                                        title="hapus"
-                                        color="danger"
-                                        icon="trash-2"
-                                    />
+                                    <x-form method="DELETE" :action="route('account.user-remove', ['user' => $admin->id])">
+                                        <x-button-icon
+                                            type="submit"
+                                            href="{{ route('account.user-remove', ['user' => $admin->id]) }}"
+                                            title="hapus"
+                                            buttonType="button"
+                                            color="danger"
+                                            icon="trash-2"
+                                        />
+                                    </x-form>
                                 @endif
 
                             </div>
