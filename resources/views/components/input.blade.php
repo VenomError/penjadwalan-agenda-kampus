@@ -13,7 +13,7 @@
          'class' => 'form-control',
      ]) }}
  >
- <small class="text-muted">{{ $slot }}</small>
+ <small class="text-muted">{{ $slot }}</small> <br />
  @error($name)
      <small class="text-danger">{{ $message }}</small>
  @enderror
