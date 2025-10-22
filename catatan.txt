@@ -1,0 +1,4 @@
+# Tambah Table
+    php artisan make:migration create_[nama table]_table
+# perbaharui database
+    php artisan migrate:fresh --seed
